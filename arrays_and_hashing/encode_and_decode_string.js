@@ -27,6 +27,7 @@ class Solution {
      * @returns {string}
      */
     encode(strs) {
+        // Encode the strings by appending the length of each string followed by a '#' character and the string itself
         return strs.map(str => str.length+'#'+str)
     }
 
@@ -35,6 +36,10 @@ class Solution {
      * @returns {string[]}
      */
     decode(str) {
+        // Decode the string by splitting it at each '#' character and extracting the original strings
+        // The first part of each split is the length of the string, which we can ignore
+        // The second part is the original string
+        // We can use map to iterate over the array and slice to get the original string
        return str.map(word => word.slice(word.indexOf('#')+1))
     }
 }
